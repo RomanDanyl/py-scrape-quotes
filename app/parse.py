@@ -17,8 +17,7 @@ class Quote:
 
 def parse_single_quote(quote_soup: Tag) -> Quote:
     return Quote(
-        text=quote_soup.select_one(".text")
-        .text.replace("“", "").replace("”", ""),
+        text=quote_soup.select_one(".text").text,
         author=quote_soup.select_one(".author").text,
         tags=[tag.text for tag in quote_soup.select("a.tag")]
     )
