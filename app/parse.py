@@ -28,7 +28,9 @@ def get_quotes() -> list[Quote]:
     page_num = 1
     objects = []
     while True:
-        page = requests.get(f"https://quotes.toscrape.com/page/{page_num}/").content
+        page = requests.get(
+            f"https://quotes.toscrape.com/page/{page_num}/"
+        ).content
         soup = BeautifulSoup(page, "html.parser")
 
         quotes = soup.select(".quote")
